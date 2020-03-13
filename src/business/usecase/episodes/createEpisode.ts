@@ -19,12 +19,11 @@ export class CreateEpisodeUC {
 
         await this.db.createEpisode(episode)
 
-        return{
+        return {
             message: "Episode created successfully"
         }
     }
 }
-
 
 export interface CreateEpisodeUCInput {
     title: string,
@@ -32,7 +31,6 @@ export interface CreateEpisodeUCInput {
     link: string,
     synopsis: string
     serie_id: string
-
 }
 
 export interface CreateEpisodeUCOutput {

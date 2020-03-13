@@ -18,19 +18,17 @@ export class CreateSerieUC {
 
         await this.db.createSerie(serie)
 
-        return{
+        return {
             message: "Serie created successfully"
         }
     }
 }
-
 
 export interface CreateSerieUCInput {
     title: string,
     date: Date,
     picture: string,
     synopsis: string
-
 }
 
 export interface CreateSerieUCoutput {

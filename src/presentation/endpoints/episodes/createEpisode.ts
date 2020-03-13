@@ -2,7 +2,6 @@ import { Request, Response } from 'express';
 import { EpisodeDB } from "../../../data/episodeDataBase";
 import { CreateEpisodeUC } from "../../../business/usecase/episodes/createEpisode";
 
-
 export const createEpisodeEndpoint = async (req: Request, res: Response) => {
     try {
         const createEpisodeUC = new CreateEpisodeUC(new EpisodeDB())

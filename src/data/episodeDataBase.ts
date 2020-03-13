@@ -1,7 +1,6 @@
 import { BaseDB } from "./baseDataBase";
 import { Episodes } from "../business/entities/episodes";
 
-
 export class EpisodeDB extends BaseDB {
     private episodeTable = "episodes";
 
