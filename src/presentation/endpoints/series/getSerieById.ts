@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { FilmDB } from "../../../data/filmDataBase"
-import { GetSerieByIdUC } from "../../../business/usecase/films/getSerieById";
+import { GetSerieByIdUC } from "../../../business/usecase/series/getSerieById";
 
 export const getSerieByIdEndpoint = async (req: Request, res: Response) => {
    try {
