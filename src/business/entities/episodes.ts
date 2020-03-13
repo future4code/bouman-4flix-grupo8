@@ -5,7 +5,7 @@ export class Episodes {
     constructor(
         private id: string,
         private title: string,
-        private lenght: string,
+        private length: string,
         private link: string,
         private synopsis: string,
         private serie_id: string
@@ -27,12 +27,12 @@ export class Episodes {
         this.title = title;
     }
 
-    public getLenght(): string {
-        return this.lenght;
+    public getLength(): string {
+        return this.length;
     }
 
-    public setLenght(lenght: string) {
-        this.lenght = lenght;
+    public setLength(length: string) {
+        this.length = length;
     }
 
     public getLink(): string {
@@ -64,19 +64,19 @@ export class EpisodesWithSeries extends Episodes {
     constructor(
         id: string,
         title: string,
-        lenght: string,
+        length: string,
         link: string,
         synopsis: string,
-        private series: Series
+        private serie: Serie
     ) {
-        super(id, title, lenght, link, synopsis, series.getId())
+        super(id, title, length, link, synopsis, serie.getId())
     }
 
-    public setSerie(series: Series): void {
-        this.series = series;
+    public setSerie(series: Serie): void {
+        this.serie = series;
     }
 
-    public getSerie(): Series {
-        return this.series;
+    public getSerie(): Serie {
+        return this.serie;
     }
 }

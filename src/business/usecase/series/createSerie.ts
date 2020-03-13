@@ -1,5 +1,6 @@
 import { v4 } from "uuid";
 import { Serie } from "../../entities/serie";
+import { SerieDB } from "../../../data/serieDataBase";
 
 export class CreateSerieUC {
     constructor(private db: SerieDB) { }
