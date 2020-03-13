@@ -67,16 +67,16 @@ export class EpisodesWithSeries extends Episodes {
         lenght: string,
         link: string,
         synopsis: string,
-        private series: Series
+        private serie: Serie
     ) {
-        super(id, title, lenght, link, synopsis, series.getId())
+        super(id, title, lenght, link, synopsis, serie.getId())
     }
 
-    public setSerie(series: Series): void {
-        this.series = series;
+    public setSerie(series: Serie): void {
+        this.serie = series;
     }
 
-    public getSerie(): Series {
-        return this.series;
+    public getSerie(): Serie {
+        return this.serie;
     }
 }
