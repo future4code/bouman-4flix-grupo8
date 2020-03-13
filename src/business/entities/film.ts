@@ -64,4 +64,4 @@ export class Film {
    public setPicture(picture: string) {
       this.picture = picture;
    }
-}
+};
