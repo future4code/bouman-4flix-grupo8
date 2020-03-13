@@ -1,34 +1,36 @@
 import { BaseDB } from './baseDataBase';
 import { Film } from '../business/entities/film';
+import { Serie } from '../business/entities/serie';
 
 export class FilmDB extends BaseDB {
    private filmTableName = "films";
+   private serieTableName = "series";
+   
+   private mapDbFilmToFilm(input?: any): Film | undefined {
+      return (
+         input && new Film(
+            input.id,
+            input.title,
+            input.date,
+            input.link,
+            input.synopsis,
+            input.length,
+            input.picture,
+         )
+      );
+   }
 
-   // private mapDateToDbDate(input: Date): string {
-   //    const year = input.getFullYear();
-   //    const month = input.getMonth() + 1;
-   //    const date = input.getDate();
-   //    return `${year + "-" + month + "-" + date}`;
-   // }
-
-   // private mapDbDateToDate(input: string): Date {
-   //    return new Date(input);
-   // }
-
-   // private mapDbFilmToFilm(input?: any): Film | undefined {
-   //    return (
-   //       input &&
-   //       new Film(
-   //          input.id,
-   //          input.title,
-   //          this.mapDbDateToDate(input.date),
-   //          input.link,
-   //          input.synopsis,
-   //          input.length,
-   //          input.picture
-   //       )
-   //    );
-   // }
+   private mapDbSerieToSerie(input?: any): Serie | undefined {
+      return (
+         input && new Serie(
+            input.id,
+            input.title,
+            input.date,
+            input.picture,
+            input.synopsis         
+         )
+      )
+   }   
 
    public async createFilm(film: Film): Promise<void> {
       await this.connection.raw(
@@ -46,5 +48,21 @@ export class FilmDB extends BaseDB {
             '${film.getPicture()}'
          )
       `);
+   }
+
+   public async getFilmById(id: string): Promise<Film | undefined> {
+      const result = await this.connection.raw(`
+          SELECT * FROM ${this.filmTableName} WHERE id = '${id}'
+       `);
+ 
+       return this.mapDbFilmToFilm(result[0][0])
+    };
+
+   public async getSeriesById(id: string): Promise<Serie | undefined> {
+      const result = await this.connection.raw(`
+         SELECT * FROM ${this.serieTableName} WHERE id = '${id}'
+      `);
+
+      return this.mapDbSerieToSerie(result[0][0])
    }
 }
