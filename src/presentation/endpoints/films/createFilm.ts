@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { FilmDB } from '../../../data/filmDataBase';
-import { CreateFilmUC } from '../../../business/usercase/films/createFilm';
+import { CreateFilmUC } from '../../../business/usecase/films/createFilm';
 
 export const createFilmEndpoint = async (req: Request, res: Response) => {
    try {
