@@ -22,8 +22,8 @@ export class CreateEpisodeUC {
         return {
             message: "Episode created successfully"
         }
-    }
-}
+    };
+};
 
 export interface CreateEpisodeUCInput {
     title: string,

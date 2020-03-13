@@ -1,8 +1,8 @@
-import { FilmDB } from "../../../data/filmDataBase";
 import { NotFoundError } from "../../error/NotFoundError";
+import { SerieDB } from "../../../data/serieDataBase";
 
 export class GetSerieByIdUC {
-   constructor(private db: FilmDB) { }
+   constructor(private db: SerieDB) { }
 
    public async execute(input: GetSerieByIdUCInput): Promise<GetSerieByIdUCOutput> {
       const serie = await this.db.getSeriesById(input.id)

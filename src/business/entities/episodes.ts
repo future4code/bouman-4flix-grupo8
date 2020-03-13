@@ -57,16 +57,16 @@ export class Episodes {
     public setSerieId(serie_id: string): void {
         this.serie_id = serie_id;
     }
-}
+};
 
-export class EpisodesWithSeries extends Episodes {
+export class EpisodesWithSerie extends Episodes {
     constructor(
         id: string,
         title: string,
         length: string,
         link: string,
         synopsis: string,
-        private serie: Serie
+        private serie: Serie,
     ) {
         super(id, title, length, link, synopsis, serie.getId())
     }
@@ -78,4 +78,4 @@ export class EpisodesWithSeries extends Episodes {
     public getSerie(): Serie {
         return this.serie;
     }
-}
+};
